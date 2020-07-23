@@ -36,9 +36,10 @@ function getMapPlaces(lat, lon) {
       latitude: lat,
       longitude: lon,
       radius: 2000,
+      categories: "restaurants",
       //sort_by: "distance",
       //location: "Fort+Lee",
-      term: "dog+friendly",
+      term: "dogs+allowed",
       accessToken:
         "_961jkjpPEKGMX6YlEZm8awCLH1avefv5RUIhm6ciV_8kfRRr-gRay5GIICt9Ih-ggqoKNJdnSD7rBuIwmcbiaHSLUFWeJmOaHmzO5t4UwYvJCfX7hy38gy4IhUWX3Yx",
     },
@@ -55,6 +56,7 @@ function printToPage(response) {
 
   businessArr.forEach((business) => {
     var businessDiv = $("<div>");
+    businessDiv.addClass("businessDiv");
     var nameDiv = $("<div>");
     var phoneDiv = $("<div>");
     var addressDiv = $("<div>");
@@ -66,6 +68,7 @@ function printToPage(response) {
     addressDiv.append(business.location.display_address);
 
     businessDiv.append(nameDiv);
+    businessDiv.append(categoryDiv);
     businessDiv.append(phoneDiv);
     businessDiv.append(addressDiv);
     $("#everything").append(businessDiv);
