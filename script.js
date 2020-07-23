@@ -36,10 +36,11 @@ function getMapPlaces(lat, lon) {
       latitude: lat,
       longitude: lon,
       radius: 2000,
+      attributes: "dogs+allowed+yes",
       categories: "restaurants",
       //sort_by: "distance",
       //location: "Fort+Lee",
-      term: "dogs+allowed",
+      term: "dog+friendly",
       accessToken:
         "_961jkjpPEKGMX6YlEZm8awCLH1avefv5RUIhm6ciV_8kfRRr-gRay5GIICt9Ih-ggqoKNJdnSD7rBuIwmcbiaHSLUFWeJmOaHmzO5t4UwYvJCfX7hy38gy4IhUWX3Yx",
     },
