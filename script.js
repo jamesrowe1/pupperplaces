@@ -58,11 +58,13 @@ function printToPage(response) {
     var nameDiv = $("<div>");
     var phoneDiv = $("<div>");
     var addressDiv = $("<div>");
+    var categoryDiv = $("<div>");
 
     nameDiv.append(business.name);
-
+    categoryDiv.append(business.categories[0].title);
     phoneDiv.append(business.display_phone);
     addressDiv.append(business.location.display_address);
+
     businessDiv.append(nameDiv);
     businessDiv.append(phoneDiv);
     businessDiv.append(addressDiv);
