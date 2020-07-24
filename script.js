@@ -1,6 +1,10 @@
-var x = document.getElementById("demo");
+var searchForm = $("#searchForm");
+var searchInput = $("#searchInput");
+var everything = $("#everything");
+var searchButton = $("#searchButton");
 var lat;
 var lon;
+
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
@@ -16,8 +20,20 @@ function showPosition(position) {
   console.log(lon);
   getMapPlaces(lat, lon);
 }
+//search button
+searchButton.on("click", function (event) {
+  event.preventDefault();
+  everything.empty();
+  getMapPlaces("", "", searchInput.val());
+});
+//searchBar
+searchForm.on("submit", function (event) {
+  event.preventDefault();
+  everything.empty();
+  getMapPlaces("", "", searchInput.val());
+});
 
-function getMapPlaces(lat, lon) {
+function getMapPlaces(lat, lon, location) {
   var key =
     "_961jkjpPEKGMX6YlEZm8awCLH1avefv5RUIhm6ciV_8kfRRr-gRay5GIICt9Ih-ggqoKNJdnSD7rBuIwmcbiaHSLUFWeJmOaHmzO5t4UwYvJCfX7hy38gy4IhUWX3Yx";
   var settings = {
@@ -39,7 +55,7 @@ function getMapPlaces(lat, lon) {
       attributes: "dogs+allowed+yes",
       categories: "restaurants",
       //sort_by: "distance",
-      //location: "Fort+Lee",
+      location: location,
       term: "dog+friendly",
       accessToken:
         "_961jkjpPEKGMX6YlEZm8awCLH1avefv5RUIhm6ciV_8kfRRr-gRay5GIICt9Ih-ggqoKNJdnSD7rBuIwmcbiaHSLUFWeJmOaHmzO5t4UwYvJCfX7hy38gy4IhUWX3Yx",
